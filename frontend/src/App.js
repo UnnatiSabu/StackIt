@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import './styles/global.css';
-import './App.css';
+import './styles/App.css';
 
 import Navbar from "./components/Navbar";
 import QuestionList from "./components/QuestionList";
@@ -279,7 +280,6 @@ function Home() {
     </div>
   );
 }
-
 
 function App() {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import QuestionCard from "./QuestionCard";
+import QuestionCard from "/Users/yughjuneja/Documents/stackit/StackIt/frontend/src/components/QuestionCard.jsx";
 
 function QuestionList({ questions, onVote, compact }) {
   return (

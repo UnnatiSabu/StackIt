@@ -1,5 +1,5 @@
 import React from "react";
-import "./Pagination.css";
+import "/Users/yughjuneja/Documents/stackit/StackIt/frontend/src/components/Pagination.css";
 
 function Pagination({ totalPages, currentPage, onPageChange }) {
   if (totalPages <= 1) return null;

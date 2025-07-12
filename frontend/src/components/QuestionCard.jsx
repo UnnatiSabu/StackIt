@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./QuestionCard.css";
+import "/Users/yughjuneja/Documents/stackit/StackIt/frontend/src/components/QuestionCard.css";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 
 function QuestionCard({ question, onVote, compact }) {

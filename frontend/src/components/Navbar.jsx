@@ -1,5 +1,5 @@
 import React from "react";
-import "./Navbar.css";
+import "/Users/yughjuneja/Documents/stackit/StackIt/frontend/src/components/Navbar.css";
 
 function Navbar({ theme, toggleTheme, isLoggedIn, userProfile }) {
   return (
