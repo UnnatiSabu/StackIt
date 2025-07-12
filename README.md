@@ -1,4 +1,3 @@
----
 # 🚀 Project Description
 
 **🌟 StackIt** is a lightweight, minimalistic question-and-answer forum platform built to support collaborative learning and structured knowledge sharing.
@@ -10,7 +9,6 @@ It allows users to:
 * Switch between light and dark themes for a better user experience.
 
 StackIt emphasizes **simplicity** and **clarity**, ensuring users focus on quality discussions without distractions.
-
 ---
 
 # ⚙️ Technologies Used
