@@ -4,33 +4,63 @@
   border-radius: 8px;
   padding: 12px;
   margin-bottom: 12px;
-  width: 100%; /* Full width */
-  box-sizing: border-box; /* Include padding in width */
+  width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .vote-section {
-  min-width: 50px;
+  min-width: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 12px;
+  gap: 4px;
+  margin-right: 15px;
 }
 
-.vote-count {
-  font-size: 18px;
-  font-weight: bold;
+.vote-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.vote-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--text-color);
+  opacity: 0.6;
+  transition: all 0.2s;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vote-btn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.vote-btn.active {
+  opacity: 1;
   color: var(--accent-color);
 }
 
-.vote-label {
-  font-size: 12px;
+.vote-count {
+  font-size: 16px;
+  font-weight: bold;
   color: var(--text-color);
-  opacity: 0.7;
+  min-width: 20px;
+  text-align: center;
 }
 
 .question-content {
   flex-grow: 1;
-  min-width: 0; /* Prevent overflow */
+  min-width: 0;
 }
 
 .question-content h3 {
@@ -75,7 +105,7 @@
 .username {
   color: var(--text-color);
   opacity: 0.8;
-  font-size: 14px;
+  font-size: 4px; /* your specific small font */
 }
 
 .answer-count {
@@ -87,59 +117,6 @@
   white-space: nowrap;
   min-width: 80px;
   text-align: center;
-}
-
-/* Add these new styles for interactive elements */
-.vote-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  color: var(--text-color);
-  opacity: 0.6;
-  transition: all 0.2s;
-  padding: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.vote-btn:hover {
-  opacity: 1;
-  transform: scale(1.1);
-}
-
-.vote-btn.active {
-  opacity: 1;
-  color: var(--accent-color);
-}
-
-.vote-buttons {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-}
-
-.vote-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 60px;
-  gap: 4px;
-  margin-right: 15px;
-}
-
-.vote-count {
-  font-size: 16px;
-  font-weight: bold;
-  color: var(--text-color);
-  min-width: 20px;
-  text-align: center;
-}
-
-.question-card {
-  transition: all 0.2s ease;
 }
 
 .question-card:hover {
@@ -172,4 +149,104 @@
 .pagination .disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+/* Additional from advanced snippet */
+.expand-icon {
+  margin-left: 10px;
+  font-size: 14px;
+  opacity: 0.7;
+  transition: transform 0.2s;
+}
+
+.answers-section {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid var(--border-color);
+}
+
+.answers-section h4 {
+  margin-bottom: 10px;
+  color: var(--accent-color);
+}
+
+.answer {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.answer-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.answer-author {
+  font-style: italic;
+}
+
+.answer-date {
+  color: var(--text-color);
+  opacity: 0.6;
+}
+
+.answers-preview {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+}
+
+.answer-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.more-answers {
+  margin: 5px 0 0 0;
+  font-size: 12px;
+  color: var(--accent-color);
+  opacity: 0.8;
+}
+
+.card-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.card-footer .answer-count {
+  order: 1;
+  background-color: var(--tag-bg);
+  padding: 4px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.card-footer .tags {
+  order: 3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  flex: 1;
+}
+
+.card-footer .username {
+  order: 2;
+  color: var(--text-color);
+  opacity: 0.8;
+  margin-right: auto;
+  white-space: nowrap;
 }
