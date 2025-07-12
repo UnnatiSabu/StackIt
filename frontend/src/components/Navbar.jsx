@@ -1,5 +1,6 @@
 import React from "react";
-import "/Users/yughjuneja/Documents/stackit/StackIt/frontend/src/components/Navbar.css";
+import "./Navbar.css"; // because Navbar.css is in same folder
+
 
 function Navbar({ theme, toggleTheme, isLoggedIn, userProfile }) {
   return (
