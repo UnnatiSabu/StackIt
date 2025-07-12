@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+
 import "./styles/App.css";
 
 import Navbar from "./components/Navbar";
@@ -16,7 +17,7 @@ import { FaSearch, FaTimes } from "react-icons/fa";
 
 function App() {
   const [theme, setTheme] = useState("dark");
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userProfile, setUserProfile] = useState({
     name: "John Doe",
     avatar: "https://i.pravatar.cc/150?img=3",
@@ -39,10 +40,7 @@ function App() {
       description: "Looking for best practices to make my React app faster...",
       tags: ["React", "Performance", "JavaScript"],
       username: "react_lover",
-      answers: [
-        { text: "Use React.memo for components that don't need to re-render often.", author: "perf_expert", date: "2023-05-15" },
-        { text: "Consider using useCallback and useMemo hooks.", author: "hook_master", date: "2023-05-16" }
-      ],
+      answers: [{ text: "Use React.memo", author: "perf_expert", date: "2023-05-15" }],
       votes: 24
     },
     {
@@ -51,9 +49,7 @@ function App() {
       description: "I'm confused about when to use Grid and when Flexbox...",
       tags: ["CSS", "Frontend", "Web Development"],
       username: "css_newbie",
-      answers: [
-        { text: "Grid is for layout, Flex for components.", author: "frontend_guru", date: "2023-05-17" }
-      ],
+      answers: [],
       votes: 15
     },
     {
@@ -64,25 +60,7 @@ function App() {
       username: "dev_enthusiast",
       answers: [],
       votes: 10
-    },
-    {
-      id: 4,
-      title: "TypeScript best practices for large codebases",
-      description: "How to structure TypeScript projects for maintainability?",
-      tags: ["TypeScript", "Best Practices"],
-      username: "ts_expert",
-      answers: [],
-      votes: 18
-    },
-    {
-      id: 5,
-      title: "State management in React - Context vs Redux",
-      description: "When should I use Context API vs Redux Toolkit?",
-      tags: ["React", "State Management"],
-      username: "state_master",
-      answers: [],
-      votes: 22
-    },
+    }
   ];
 
   const allTags = [...new Set(recommendedQuestions.flatMap(q => q.tags))];
@@ -215,37 +193,23 @@ function App() {
 
             <div className="content-container">
               <Routes>
-                <Route path="/" element={
-                  <>
-                    <main className="content">
-                      {activeTab === "home" && (
-                        <>
-                          <div className="greeting-section">
-                            <h2>Welcome back, {userProfile.name}!</h2>
-                            <button className="ask-button" onClick={() => (window.location.href = "/ask-question")}>
-                              Ask New Question
-                            </button>
-                          </div>
-                          <h3 className="recommended-title">
-                            {selectedTags.length > 0 ? `Questions tagged [${selectedTags.join(", ")}]` : "Recommended for you"}
-                          </h3>
-                        </>
-                      )}
-                      <QuestionList questions={currentQuestions} onVote={handleVote} compact={true} />
-                    </main>
-
-                    {totalPages > 1 && (
-                      <div className="pagination-container">
-                        <Pagination totalPages={totalPages} currentPage={currentPage} onPageChange={(page) => setCurrentPage(page)} />
-                      </div>
-                    )}
-                  </>
-                } />
-
-                <Route path="/questions/:questionId" element={
-                  <QuestionDetail questions={recommendedQuestions} onVote={handleVote} />
-                } />
-
+                <Route
+                  path="/"
+                  element={
+                    <Home
+                      isLoggedIn={isLoggedIn}
+                      userProfile={userProfile}
+                      activeTab={activeTab}
+                      selectedTags={selectedTags}
+                      currentQuestions={currentQuestions}
+                      handleVote={handleVote}
+                      totalPages={totalPages}
+                      currentPage={currentPage}
+                      setCurrentPage={setCurrentPage}
+                    />
+                  }
+                />
+                <Route path="/questions/:questionId" element={<QuestionDetail questions={recommendedQuestions} onVote={handleVote} />} />
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="/profile" element={<ProfilePage />} />
                 <Route path="/ask-question" element={<AskAQuestion />} />
@@ -257,6 +221,39 @@ function App() {
         </div>
       </div>
     </Router>
+  );
+}
+
+function Home({ isLoggedIn, userProfile, activeTab, selectedTags, currentQuestions, handleVote, totalPages, currentPage, setCurrentPage }) {
+  const navigate = useNavigate();
+  return (
+    <>
+      <main className="content">
+        {activeTab === "home" && (
+          <>
+            <div className="greeting-section">
+              <h2>Welcome back, {userProfile.name}!</h2>
+              <button
+                className="ask-button"
+                onClick={() => (isLoggedIn ? navigate("/ask-question") : navigate("/login"))}
+              >
+                Ask New Question
+              </button>
+            </div>
+            <h3 className="recommended-title">
+              {selectedTags.length > 0 ? `Questions tagged [${selectedTags.join(", ")}]` : "Recommended for you"}
+            </h3>
+          </>
+        )}
+        <QuestionList questions={currentQuestions} onVote={handleVote} compact={true} />
+      </main>
+
+      {totalPages > 1 && (
+        <div className="pagination-container">
+          <Pagination totalPages={totalPages} currentPage={currentPage} onPageChange={setCurrentPage} />
+        </div>
+      )}
+    </>
   );
 }
 
