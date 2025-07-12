@@ -1,8 +1,13 @@
-import React from "react";
-import QuestionCard from "./QuestionCard"; // same directory
-
+import React, { useState } from "react";
+import QuestionCard from "./QuestionCard";
 
 function QuestionList({ questions, onVote, compact }) {
+  const [expandedQuestionId, setExpandedQuestionId] = useState(null);
+
+  const handleQuestionClick = (questionId) => {
+    setExpandedQuestionId(expandedQuestionId === questionId ? null : questionId);
+  };
+
   return (
     <>
       {questions.map((question) => (
@@ -11,6 +16,8 @@ function QuestionList({ questions, onVote, compact }) {
           question={question} 
           onVote={onVote}
           compact={compact}
+          onQuestionClick={handleQuestionClick}
+          isExpanded={expandedQuestionId === question.id}
         />
       ))}
     </>
