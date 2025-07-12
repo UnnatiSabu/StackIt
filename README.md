@@ -1,5 +1,4 @@
 ---
-
 # 🚀 Project Description
 
 **🌟 StackIt** is a lightweight, minimalistic question-and-answer forum platform built to support collaborative learning and structured knowledge sharing.
