@@ -8,9 +8,10 @@ It allows users to:
 * Manage their profiles,
 * Switch between light and dark themes for a better user experience.
 
-  Video Link : [Video]((https://drive.google.com/drive/folders/1ZGNLfJ71gB6xe4PWHAwgwCxTnftXBB9D))
+**Video Link:** [Watch Demo Video](https://drive.google.com/drive/folders/1ZGNLfJ71gB6xe4PWHAwgwCxTnftXBB9D)
 
 StackIt emphasizes **simplicity** and **clarity**, ensuring users focus on quality discussions without distractions.
+
 ---
 
 # ⚙️ Technologies Used
