@@ -1,0 +1,131 @@
+.question-detail-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .question-header h1 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+  }
+  
+  .question-meta {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 14px;
+  }
+  
+  .question-content {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .question-content p {
+    flex: 1;
+    line-height: 1.6;
+  }
+  
+  .vote-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    min-width: 50px;
+  }
+  
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 30px;
+  }
+  
+  .tag {
+    background-color: var(--tag-bg);
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 14px;
+  }
+  
+  .answers-section h2 {
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .answer {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+  }
+  
+  .answer-content {
+    flex: 1;
+  }
+  
+  .answer-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: 0.8;
+  }
+  
+  .answer-votes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    min-width: 50px;
+  }
+  
+  .vote-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--text-color);
+    opacity: 0.6;
+    transition: all 0.2s;
+    padding: 5px;
+  }
+  
+  .vote-btn:hover {
+    opacity: 1;
+  }
+  
+  .vote-count {
+    font-weight: bold;
+    color: var(--accent-color);
+  }
+  
+  .home-button {
+    background-color: var(--button-bg);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+  }
+  
+  .home-button:hover {
+    background-color: var(--button-hover);
+  }
+  
+  .vote-btn.active {
+    color: var(--accent-color);
+    opacity: 1;
+  }
